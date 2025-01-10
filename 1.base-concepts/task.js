@@ -13,6 +13,7 @@ function solveEquation(a, b, c) {
   } else {
     arr = [];
   }
+  
   return arr;
 }
 
