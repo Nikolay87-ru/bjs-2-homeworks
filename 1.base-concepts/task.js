@@ -10,6 +10,8 @@ function solveEquation(a, b, c) {
     arr[1] = (-b - Math.sqrt(discriminant)) / (2 * a);
   } else if (discriminant === 0) {
     arr[0] = -b / (2 * a);
+  } else {
+    arr = [];
   }
   return arr;
 }
@@ -21,13 +23,5 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let mounthPayment =
     amount * (percent + percent / ((1 + percent) ** countMonths - 1));
   let totalPaymentSum = mounthPayment * countMonths;
-  console.log(Number(totalPaymentSum.toFixed(2)));
+  return Number(totalPaymentSum.toFixed(2));
 }
-
-calculateTotalMortgage(10, 0, 50000, 12);
-calculateTotalMortgage(10, 1000, 50000, 12);
-calculateTotalMortgage(10, 0, 20000, 24);
-calculateTotalMortgage(10, 1000, 20000, 24);
-calculateTotalMortgage(10, 20000, 20000, 24);
-calculateTotalMortgage(10, 0, 10000, 36);
-calculateTotalMortgage(15, 0, 10000, 36);
