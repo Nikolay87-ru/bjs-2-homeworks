@@ -3,7 +3,7 @@
 function solveEquation(a, b, c) {
   let arr = [];
 
-  let discriminant = b ** 2 - 4 * a * c;
+  const discriminant = b ** 2 - 4 * a * c;
 
   if (discriminant > 0) {
     arr[0] = (-b + Math.sqrt(discriminant)) / (2 * a);
@@ -16,11 +16,12 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let percentRate = (percent / 100) / 12;
-  let creditBody = amount - contribution;
+  const percentRate = percent / 100 / 12;
+  const creditBody = amount - contribution;
 
-  let mounthPayment =
-    creditBody * (percentRate + percentRate / ((1 + percentRate) ** countMonths - 1));
-  let totalPaymentSum = mounthPayment * countMonths;
+  const mounthPayment =
+    creditBody *
+    (percentRate + percentRate / ((1 + percentRate) ** countMonths - 1));
+  const totalPaymentSum = mounthPayment * countMonths;
   return Number(totalPaymentSum.toFixed(2));
 }
