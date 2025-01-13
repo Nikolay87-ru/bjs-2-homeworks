@@ -4,13 +4,9 @@ function getArrayParams(...arr) {
   const totalSum = arr.reduce(
   (accumulator, currentValue) => accumulator + currentValue, 0);
   const avg = totalSum / arr.length;
-  return { min: min, max: max, avg: avg };
+
+  return { min: min, max: max, avg: +avg.toFixed(2) };
 }
-
-console.log(getArrayParams(-99, 99, 10)); 
-console.log(getArrayParams(1, 2, 3, -100, 10));  
-console.log(getArrayParams(5));
-
 
 // function summElementsWorker(...arr) {
 
