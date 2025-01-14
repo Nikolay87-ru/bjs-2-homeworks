@@ -7,26 +7,42 @@
 //   return { min: min, max: max, avg: +avg.toFixed(2) };
 // }
 
-function summElementsWorker(...arr) {
-  let arraySum = 0;
+// function summElementsWorker(...arr) {
+//   let arraySum = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    arraySum += arr[i];
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     arraySum += arr[i];
+//   }
 
-  return arraySum;
-}
-
-console.log(summElementsWorker()); 
-console.log(summElementsWorker(10, 10, 11, 20, 10));
+//   return arraySum;
+// }
 
 // function differenceMaxMinWorker(...arr) {
+//   let maxValue = arr[0];
+//   let minValue = arr[0];
 
+//   if (arr.length === 0) return 0;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > maxValue) {
+//       maxValue = arr[i];
+//     } else if (arr[i] < minValue) {
+//       minValue = arr[i];
+//     } 
+//   }
+
+//   return maxValue - minValue;
 // }
 
-// function differenceEvenOddWorker(...arr) {
+function differenceEvenOddWorker(...arr) {
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
 
-// }
+  for (let i = 0; i < arr.length; i++) {
+
+  }
+
+}
 
 // function averageEvenElementsWorker(...arr) {
 
