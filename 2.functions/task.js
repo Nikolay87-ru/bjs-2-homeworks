@@ -1,4 +1,4 @@
-// ЗАДАЧА №1. ФУНКЦИЯ 1
+// ЗАДАЧА № 1. ФУНКЦИЯ 1
 function getArrayParams(...arr) {
   const min = Math.min(...arr);
   const max = Math.max(...arr);
@@ -8,7 +8,7 @@ function getArrayParams(...arr) {
   return { min: min, max: max, avg: +avg.toFixed(2) };
 }
 
-// ЗАДАЧА №2. ФУНКЦИЯ 1
+// ЗАДАЧА № 2. ФУНКЦИЯ 1
 function summElementsWorker(...arr) {
   let arraySum = 0;
 
@@ -18,7 +18,7 @@ function summElementsWorker(...arr) {
   return arraySum;
 }
 
-// ЗАДАЧА №2. ФУНКЦИЯ 2
+// ЗАДАЧА № 2. ФУНКЦИЯ 2
 function differenceMaxMinWorker(...arr) {
   let maxValue = arr[0];
   let minValue = arr[0];
@@ -35,7 +35,7 @@ function differenceMaxMinWorker(...arr) {
   return maxValue - minValue;
 }
 
-// ЗАДАЧА №2. ФУНКЦИЯ 3
+// ЗАДАЧА № 2. ФУНКЦИЯ 3
 function differenceEvenOddWorker(...arr) {
   let sumEvenElement = 0;
   let sumOddElement = 0;
@@ -52,7 +52,7 @@ function differenceEvenOddWorker(...arr) {
   return sumEvenElement - sumOddElement;
 }
 
-// ЗАДАЧА №2. ФУНКЦИЯ 4
+// ЗАДАЧА № 2. ФУНКЦИЯ 4
 function averageEvenElementsWorker(...arr) {
   let sumEvenElement = 0;
   let countEvenElement = 0;
@@ -68,7 +68,7 @@ function averageEvenElementsWorker(...arr) {
   return sumEvenElement / countEvenElement;
 }
 
-// ЗАДАЧА №3. ФУНКЦИЯ 1
+// ЗАДАЧА № 3. ФУНКЦИЯ 1
 function makeWork(arrOfArr, func) {
   let maxWorkerResult = func(...arrOfArr[0]);
 
