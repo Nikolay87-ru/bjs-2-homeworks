@@ -26,8 +26,10 @@ Student.prototype.getAverage = function () {
 };
 
 Student.prototype.exclude = function (reason) {
-  const { marks, subject, ...student } = this;
-  Object.assign(this, student, { excluded: reason });
+  delete this.marks;
+  delete this.subject;
+  
+  this.exclude = reason;
 };
 
 let student1 = new Student("Василиса", "женский", 19);
