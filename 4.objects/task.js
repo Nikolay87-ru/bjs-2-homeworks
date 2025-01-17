@@ -14,12 +14,12 @@ Student.prototype.addMarks = function (...marks) {
     Student.marks === 'Студент отчислен!';
   }
 
-  this.addMarks = [...marks];
+  this.marks.push(...marks);;
 }
 
 Student.prototype.getAverage = function () {
   if (Student.marks !== null || undefined) {
-    return Student['marks'].reduce((sum, mark) => +((sum + mark) / Student.marks.length).toFixed(1));
+    return this.marks.reduce((sum, mark) => +((sum + mark) / this.marks.length).toFixed(1));
   }
   return 0;
 }
