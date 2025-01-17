@@ -19,7 +19,7 @@ Student.prototype.addMarks = function (...marks) {
 };
 
 Student.prototype.getAverage = function () {
-  if (this.marks.length > 0) {
+  if (this.marks && this.marks.length > 0) {
     let totalSum = this.marks.reduce((sum, mark) => sum + mark, 0);
     return +(totalSum / this.marks.length).toFixed(1);
   }
