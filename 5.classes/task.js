@@ -79,12 +79,15 @@ class Library {
         this.books.push(book);
       }
     }
+  }
 
-    // if (magazine.state > 30) {
-    //   if (magazine) {
-    //     this.books.push(magazine);
-    //   }
-    // }
+  findBookBy(type, value) {
+    for (let book of this.books) {
+      if (book[type] === value) {
+        return book;
+      }
+      return null;
+    }
   }
 }
 
@@ -109,10 +112,8 @@ library.addBook(
 library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 
-console.log(library.books);
-
-// console.log(library.findBookBy("name", "Властелин колец")); //null
-// console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
+console.log(library.findBookBy("name", "Властелин колец")); //null
+console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 
 // console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
 // library.giveBookByName("Машина времени");
