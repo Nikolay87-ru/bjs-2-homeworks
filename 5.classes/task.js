@@ -86,8 +86,8 @@ class Library {
       if (book[type] === value) {
         return book;
       }
-      return null;
     }
+    return null;
   }
 }
 
