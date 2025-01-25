@@ -1,5 +1,5 @@
 let fix = "fixBook";
-debugger;
+
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount, type = null) {
     this.name = name;
@@ -30,7 +30,7 @@ class PrintEditionItem {
 
 class Magazine extends PrintEditionItem {
   constructor(name, releaseDate, pagesCount, type = "magazine") {
-    super(name, releaseDate, pagesCount, type)
+    super(name, releaseDate, pagesCount, type);
   }
 }
 
@@ -59,16 +59,52 @@ class DetectiveBook extends Book {
   }
 }
 
-const picknick = new FantasticBook(
-  "Аркадий и Борис Стругацкие",
-  "Пикник на обочине",
-  1972,
-  168
-);
+// ЗАДАЧА #2
 
-console.log(picknick.author); //"Аркадий и Борис Стругацкие"
-console.log(picknick.name); // "Пикник на обочине"
-picknick.state = 10;
-console.log(picknick.state); //10
-picknick.fix();
-console.log(picknick.state); //15
+debugger;
+class Library {
+  constructor(name) {
+    this.name = name;
+    this.books = [];
+  }
+
+  addBook(book, magazine, state) {
+    if (state > 30) {
+      if (book) {
+        this.books.push(book);
+      } else if (magazine) {
+        this.books.push(magazine);
+      }
+    }
+  }
+}
+
+const library = new Library("Библиотека имени Ленина");
+
+library.addBook(
+  new DetectiveBook(
+    "Артур Конан Дойл",
+    "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
+    2019,
+    1008
+  )
+);
+library.addBook(
+  new FantasticBook(
+    "Аркадий и Борис Стругацкие",
+    "Пикник на обочине",
+    1972,
+    168
+  )
+);
+library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
+library.addBook(new Magazine("Мурзилка", 1924, 60));
+
+console.log(library.books);
+
+// console.log(library.findBookBy("name", "Властелин колец")); //null
+// console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
+
+// console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
+// library.giveBookByName("Машина времени");
+// console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
