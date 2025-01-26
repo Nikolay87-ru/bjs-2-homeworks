@@ -101,34 +101,36 @@ class Library {
   }
 }
 
-// // Cоздайте библиотеку;
-// const bookWorld = new Library("Книжный мир");
+// Cоздайте библиотеку;
+const bookWorld = new Library("Книжный мир");
 
-// // Добавьте в библиотеку несколько печатных изданий разных типов;
-// bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир", 1873, 1984));
-// bookWorld.addBook(new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288));
+// Добавьте в библиотеку несколько печатных изданий разных типов;
+bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир", 1873, 1984));
+bookWorld.addBook(
+  new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288)
+);
 
-// // Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
-// console.log(bookWorld.findBookBy("releaseDate", 1919));
+// Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
+console.log(bookWorld.findBookBy("releaseDate", 1919));
 
-// // Выдайте любую книгу;
-// console.log("Количество книг до выдачи: " + bookWorld.books.length);
-// let deletedBook = bookWorld.giveBookByName("Война и мир");
-// console.log("Количество книг после выдачи: " + bookWorld.books.length);
+// Выдайте любую книгу;
+console.log("Количество книг до выдачи: " + bookWorld.books.length);
+let deletedBook = bookWorld.giveBookByName("Война и мир");
+console.log("Количество книг после выдачи: " + bookWorld.books.length);
 
-// // Повредите выданную книгу;
-// console.log(deletedBook.state = 25);
+// Повредите выданную книгу;
+console.log((deletedBook.state = 25));
 
-// // Восстановите выданную книгу;
-// deletedBook.fix();
-// console.log(deletedBook.state);
+// Восстановите выданную книгу;
+deletedBook.fix();
+console.log(deletedBook.state);
 
-// // Попытайтесь добавить восстановленную книгу обратно в библиотеку;
-// bookWorld.addBook(deletedBook);
-// console.log("Количество книг после возврата: " + bookWorld.books.length);
+// Попытайтесь добавить восстановленную книгу обратно в библиотеку;
+bookWorld.addBook(deletedBook);
+console.log("Количество книг после возврата: " + bookWorld.books.length);
 
 // ЗАДАЧА #3
-debugger;
+
 class Student {
   constructor(name) {
     this.name = name;
@@ -165,7 +167,7 @@ class Student {
       const averageMarkLesson = this.getAverageBySubject(lesson);
       const marksCount = this.marks[lesson].length;
 
-      totalSumMarks += averageMarkLesson * marksCount; 
+      totalSumMarks += averageMarkLesson * marksCount;
       countMarks += marksCount;
     }
 
