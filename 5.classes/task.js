@@ -31,7 +31,7 @@ class PrintEditionItem {
 class Magazine extends PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
     super(name, releaseDate, pagesCount);
-    this.type = "magazine"
+    this.type = "magazine";
   }
 }
 
@@ -39,7 +39,7 @@ class Book extends PrintEditionItem {
   constructor(author, name, releaseDate, pagesCount) {
     super(name, releaseDate, pagesCount);
     this.author = author;
-    this.type = "book"
+    this.type = "book";
   }
 }
 
@@ -53,7 +53,7 @@ class NovelBook extends Book {
 class FantasticBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
-    this.type = "fantastic"
+    this.type = "fantastic";
   }
 }
 
@@ -89,6 +89,15 @@ class Library {
     }
     return null;
   }
+
+  giveBookByName(bookName) {
+    bookName = this.books.forEach((book, index) => {
+      if (book.name === bookName && index !== -1) {
+        return this.books.splice(index, 1);
+      }
+      return null;
+    });
+  }
 }
 
 const library = new Library("Библиотека имени Ленина");
@@ -115,6 +124,6 @@ library.addBook(new Magazine("Мурзилка", 1924, 60));
 console.log(library.findBookBy("name", "Властелин колец")); //null
 console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 
-// console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
-// library.giveBookByName("Машина времени");
-// console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
+library.giveBookByName("Машина времени");
+console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
