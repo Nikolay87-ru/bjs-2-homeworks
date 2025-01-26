@@ -66,7 +66,6 @@ class DetectiveBook extends Book {
 
 // ЗАДАЧА #2
 
-debugger;
 class Library {
   constructor(name) {
     this.name = name;
@@ -95,65 +94,93 @@ class Library {
     bookName = this.books.forEach((book, index) => {
       if (book.name === bookName && index !== -1) {
         removedBook = this.books[index];
-        return this.books.splice(index, 1)[0];
+        return this.books.splice(index, 1);
       }
     });
     return removedBook;
   }
 }
 
-// const library = new Library("Библиотека имени Ленина");
+// // Cоздайте библиотеку;
+// const bookWorld = new Library("Книжный мир");
 
-// library.addBook(
-//   new DetectiveBook(
-//     "Артур Конан Дойл",
-//     "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
-//     2019,
-//     1008
-//   )
-// );
-// library.addBook(
-//   new FantasticBook(
-//     "Аркадий и Борис Стругацкие",
-//     "Пикник на обочине",
-//     1972,
-//     168
-//   )
-// );
-// library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
-// library.addBook(new Magazine("Мурзилка", 1924, 60));
+// // Добавьте в библиотеку несколько печатных изданий разных типов;
+// bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир", 1873, 1984));
+// bookWorld.addBook(new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288));
 
-// console.log(library.findBookBy("name", "Властелин колец")); //null
-// console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
+// // Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
+// console.log(bookWorld.findBookBy("releaseDate", 1919));
 
-// console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
-// library.giveBookByName("Машина времени");
-// console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+// // Выдайте любую книгу;
+// console.log("Количество книг до выдачи: " + bookWorld.books.length);
+// let deletedBook = bookWorld.giveBookByName("Война и мир");
+// console.log("Количество книг после выдачи: " + bookWorld.books.length);
 
+// // Повредите выданную книгу;
+// console.log(deletedBook.state = 25);
 
-// Cоздайте библиотеку;
-const bookWorld = new Library("Книжный мир");
+// // Восстановите выданную книгу;
+// deletedBook.fix();
+// console.log(deletedBook.state);
 
-// Добавьте в библиотеку несколько печатных изданий разных типов;
-bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир", 1873, 1984));
-bookWorld.addBook(new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288));
+// // Попытайтесь добавить восстановленную книгу обратно в библиотеку;
+// bookWorld.addBook(deletedBook);
+// console.log("Количество книг после возврата: " + bookWorld.books.length);
 
-// Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
-console.log(bookWorld.findBookBy("releaseDate", 1919)); 
+// ЗАДАЧА #3
+debugger;
+class Student {
+  constructor(name) {
+    this.name = name;
+    this.marks = {};
+  }
 
-// Выдайте любую книгу;
-console.log("Количество книг до выдачи: " + bookWorld.books.length); 
-let givenAwayBook = bookWorld.giveBookByName("Война и мир");
-console.log("Количество книг после выдачи: " + bookWorld.books.length);
+  addMark(mark, lesson) {
+    if (mark > 1 && mark < 6) {
+      if (!this.marks[lesson]) {
+        this.marks[lesson] = [];
+      }
+      this.marks[lesson].push(mark);
+    }
+  }
 
-// Повредите выданную книгу;
-console.log(givenAwayBook.state = 25);
+  getAverageBySubject(lesson) {
+    const lessonMarks = this.marks[lesson];
 
-// Восстановите выданную книгу;
-givenAwayBook.fix();
-console.log(givenAwayBook.state);
+    if (!lessonMarks || lessonMarks.length === 0) {
+      return 0;
+    }
 
-// Попытайтесь добавить восстановленную книгу обратно в библиотеку;
-bookWorld.addBook(givenAwayBook);
-console.log("Количество книг после возврата: " + bookWorld.books.length);
+    const sumMarks = lessonMarks.reduce((acc, mark) => acc + mark);
+    return sumMarks / lessonMarks.length;
+  }
 
+  getAverage() {
+    let totalSumMarks = 0;
+    let countMarks = 0;
+
+    const lessons = Object.keys(this.marks);
+
+    for (let lesson of lessons) {
+      const averageMarkLesson = this.getAverageBySubject(lesson);
+      const marksCount = this.marks[lesson].length;
+
+      totalSumMarks += averageMarkLesson * marksCount; 
+      countMarks += marksCount;
+    }
+
+    const averageMarks = totalSumMarks / countMarks;
+    return averageMarks;
+  }
+}
+
+const student = new Student("Олег Никифоров");
+student.addMark(5, "химия");
+student.addMark(5, "химия");
+student.addMark(5, "физика");
+student.addMark(4, "физика");
+student.addMark(6, "физика"); // Оценка не добавится, так как больше 5
+console.log(student.marks);
+console.log(student.getAverageBySubject("физика")); // Средний балл по предмету физика 4.5
+console.log(student.getAverageBySubject("биология")); // Вернёт 0, так как по такому предмету нет никаких оценок.
+console.log(student.getAverage()); // Средний балл по всем предметам 4.75
