@@ -109,23 +109,23 @@ bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир",
 bookWorld.addBook(new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288));
 
 // Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
-console.log(bookWorld.findBookBy("releaseDate", 1919));
+console.log(bookWorld.findBookBy("releaseDate", 1919)); // null
 
 // Выдайте любую книгу;
-console.log("Количество книг до выдачи: " + bookWorld.books.length);
+console.log("Количество книг до выдачи: " + bookWorld.books.length); // Количество книг до выдачи: 2
 let deletedBook = bookWorld.giveBookByName("Война и мир");
-console.log("Количество книг после выдачи: " + bookWorld.books.length);
+console.log("Количество книг после выдачи: " + bookWorld.books.length); // Количество книг после выдачи: 1
 
 // Повредите выданную книгу;
-console.log((deletedBook.state = 25));
+console.log((deletedBook.state = 25)); // 25
 
 // Восстановите выданную книгу;
 deletedBook.fix();
-console.log(deletedBook.state);
+console.log(deletedBook.state); // 37.5
 
 // Попытайтесь добавить восстановленную книгу обратно в библиотеку;
 bookWorld.addBook(deletedBook);
-console.log("Количество книг после возврата: " + bookWorld.books.length);
+console.log("Количество книг после возврата: " + bookWorld.books.length); // Количество книг после возврата: 2
 
 // ЗАДАЧА #3
 
@@ -180,7 +180,7 @@ student.addMark(5, "химия");
 student.addMark(5, "физика");
 student.addMark(4, "физика");
 student.addMark(6, "физика"); // Оценка не добавится, так как больше 5
-console.log(student.marks);
+console.log(student.marks); // { 'химия': [ 5, 5 ], 'физика': [ 5, 4 ] }
 console.log(student.getAverageBySubject("физика")); // Средний балл по предмету физика 4.5
 console.log(student.getAverageBySubject("биология")); // Вернёт 0, так как по такому предмету нет никаких оценок.
 console.log(student.getAverage()); // Средний балл по всем предметам 4.75
