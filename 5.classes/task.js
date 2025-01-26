@@ -106,9 +106,7 @@ const bookWorld = new Library("Книжный мир");
 
 // Добавьте в библиотеку несколько печатных изданий разных типов;
 bookWorld.addBook(new NovelBook("Лев Толстой", "Война и мир", 1873, 1984));
-bookWorld.addBook(
-  new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288)
-);
+bookWorld.addBook(new FantasticBook("Рэй Брэдбери", "451 градус по Фаренгейту", 1953, 288));
 
 // Найдите книгу, изданную в 1919 году, или создайте её при необходимости;
 console.log(bookWorld.findBookBy("releaseDate", 1919));
