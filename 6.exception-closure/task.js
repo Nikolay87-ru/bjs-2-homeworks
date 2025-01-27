@@ -40,7 +40,7 @@ class Triangle {
   }
 
   get area() {
-    const halfPer = this.perimeter / 0.5;
+    const halfPer = this.perimeter * 0.5;
     const area = Math.sqrt(
       halfPer * (halfPer - this.sideOne) * (halfPer - this.sideTwo) * (halfPer - this.sideThree)
     );
