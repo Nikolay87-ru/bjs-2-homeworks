@@ -16,7 +16,7 @@ const validateCount = (value) => {
 };
 
 // ЗАДАЧА №2 - ТРЕУГОЛЬНИК
-
+debugger;
 class Triangle {
   constructor(sideOne, sideTwo, sideThree) {
     this.sideOne = sideOne;
@@ -50,18 +50,15 @@ class Triangle {
     return +area.toFixed(3);
   }
 
-  getTriangle() {
+  getTriangle(sideOne, sideTwo, sideThree) {
     try {
+      const triangle = new Triangle(sideOne, sideTwo, sideThree);
       triangle.checkSides();
       return triangle;
     } catch (error) {
       return {
-        area: function() {
-          "Ошибка! Треугольник не существует";
-      },
-        perimeter: function() {
-          "Ошибка! Треугольник не существует";
-      },
+        area: () => "Ошибка! Треугольник не существует",
+        perimeter: () => "Ошибка! Треугольник не существует",
       };
     }
   }
@@ -69,6 +66,6 @@ class Triangle {
 
 const triangle = new Triangle(2, 5, 500);
 
-console.log(triangle.checkSides());
+console.log(new Triangle(2, 5, 500));
 console.log(triangle.perimeter);
 console.log(triangle.area);
