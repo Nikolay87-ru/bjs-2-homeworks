@@ -14,7 +14,7 @@ const validateCount = (value) => {
   try {
     return result;
   } catch (error) {
-    return error.message;
+    return error;
   }
 };
 
