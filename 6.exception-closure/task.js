@@ -1,23 +1,26 @@
-﻿const parseCount = (stringNum) => {
-  const number = Number.parseFloat(stringNum);
+﻿const parseCount = (value) => {
+  const number = Number.parseFloat(value);
 
   if (Number.isNaN(number)) {
-    throw new Error('Ввод не является числом в десятичной системе счисления');
+    throw new Error("Невалидное значение");
   }
 
   return number;
-} 
+};
 
-console.log(parseCount("123"));
-console.log(parseCount("0.12"));
+function validateCount(value) {
+  debugger;
+  const result = parseCount(value);
+
+  if (!Number.isNaN(result)) {
+    return result;
+  }
+}
+
+console.log(validateCount("56.65"));
 
 try {
-  console.log(parseCount("test"));
+  console.log(validateCount("ыфва"));
 } catch (error) {
   console.error(error.message);
 }
-
-
-function validateCount() {
-  
-} 
