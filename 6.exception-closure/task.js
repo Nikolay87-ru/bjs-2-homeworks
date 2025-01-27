@@ -12,9 +12,7 @@ const validateCount = (value) => {
   debugger;
   const result = parseCount(value);
   try {
-    if (!Number.isNaN(result)) {
-      return result;
-    }
+    return result;
   } catch (error) {
     return error.message;
   }
