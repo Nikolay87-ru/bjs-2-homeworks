@@ -169,7 +169,7 @@ class Student {
       return 0;
     };
 
-    let averageMarks = totalSumMarks / countMarks;
+    const averageMarks = totalSumMarks / countMarks;
     return averageMarks;
   }
 }
