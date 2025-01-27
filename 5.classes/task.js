@@ -1,11 +1,9 @@
-let fix = "fixBook";
-
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
     this.name = name;
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
-    this._state = 100;
+    this.state = 100;
     this.type = null;
   }
 
@@ -74,9 +72,7 @@ class Library {
 
   addBook(book) {
     if (book.state > 30) {
-      if (book) {
-        this.books.push(book);
-      }
+      this.books.push(book);
     }
   }
 
@@ -113,7 +109,7 @@ console.log(bookWorld.findBookBy("releaseDate", 1919)); // null
 
 // Выдайте любую книгу;
 console.log("Количество книг до выдачи: " + bookWorld.books.length); // Количество книг до выдачи: 2
-let deletedBook = bookWorld.giveBookByName("Война и мир");
+const deletedBook = bookWorld.giveBookByName("Война и мир");
 console.log("Количество книг после выдачи: " + bookWorld.books.length); // Количество книг после выдачи: 1
 
 // Повредите выданную книгу;
@@ -161,15 +157,19 @@ class Student {
 
     const lessons = Object.keys(this.marks);
 
-    for (let lesson of lessons) {
+    lessons.forEach((lesson, marksCount) => {
       const averageMarkLesson = this.getAverageBySubject(lesson);
-      const marksCount = this.marks[lesson].length;
+      marksCount = this.marks[lesson].length;
+
+      if (!marksCount || marksCount === 0) {
+        return 0;
+      }
 
       totalSumMarks += averageMarkLesson * marksCount;
-      countMarks += marksCount;
-    }
+      return countMarks += marksCount;
+    });
 
-    const averageMarks = totalSumMarks / countMarks;
+    let averageMarks = totalSumMarks / countMarks;
     return averageMarks;
   }
 }
