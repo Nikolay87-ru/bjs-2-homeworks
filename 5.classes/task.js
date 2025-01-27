@@ -161,13 +161,13 @@ class Student {
       const averageMarkLesson = this.getAverageBySubject(lesson);
       marksCount = this.marks[lesson].length;
 
-      if (!marksCount || marksCount === 0) {
-        return 0;
-      }
-
       totalSumMarks += averageMarkLesson * marksCount;
       return countMarks += marksCount;
     });
+
+    if (!countMarks || countMarks === 0) {
+      return 0;
+    };
 
     let averageMarks = totalSumMarks / countMarks;
     return averageMarks;
