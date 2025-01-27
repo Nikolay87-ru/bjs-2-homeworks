@@ -22,17 +22,21 @@ class Triangle {
     this.sideOne = sideOne;
     this.sideTwo = sideTwo;
     this.sideThree = sideThree;
-  }
 
-  checkSides() {
-    let result1 = this.sideOne + this.sideTwo < this.sideThree;
-    let result2 = this.sideOne + this.sideThree < this.sideTwo;
-    let result3 = this.sideTwo + this.sideThree < this.sideOne;
-
-    if (result1 || result2 || result3) {
+    if (this.checkSides()) {
       throw new Error("Треугольник с такими сторонами не существует");
     }
   }
+
+  checkSides() {
+    return (
+      this.sideOne + this.sideTwo <= this.sideThree ||
+      this.sideOne + this.sideThree <= this.sideTwo ||
+      this.sideTwo + this.sideThree <= this.sideOne
+    );
+  }
+
+
 
   get perimeter() {
     const perimeter = this.sideOne + this.sideTwo + this.sideThree;
@@ -52,9 +56,7 @@ class Triangle {
 
   getTriangle(sideOne, sideTwo, sideThree) {
     try {
-      const triangle = new Triangle(sideOne, sideTwo, sideThree);
-      triangle.checkSides();
-      return triangle;
+      return new Triangle(sideOne, sideTwo, sideThree);
     } catch (error) {
       return {
         area: () => "Ошибка! Треугольник не существует",
