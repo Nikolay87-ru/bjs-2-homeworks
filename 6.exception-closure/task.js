@@ -24,7 +24,7 @@ class Triangle {
     this.sideThree = sideThree;
   }
 
-  toBeDefined() {
+  checkSides() {
     let result1 = this.sideOne + this.sideTwo < this.sideThree;
     let result2 = this.sideOne + this.sideThree < this.sideTwo;
     let result3 = this.sideTwo + this.sideThree < this.sideOne;
@@ -34,6 +34,22 @@ class Triangle {
     }
   }
 
+  get perimeter() {
+    const perimeter = this.sideOne + this.sideTwo + this.sideThree;
+    return perimeter;
+  }
+
+  get area() {
+    const halfPer = this.perimeter / 0.5;
+    const area = Math.sqrt(
+      halfPer * (halfPer - this.sideOne) * (halfPer - this.sideTwo) * (halfPer - this.sideThree)
+    );
+    return +area.toFixed(3);
+  }
 }
 
-console.log(new Triangle(1,3,3).toBeDefined());
+const triangle = new Triangle(2,5,5);
+
+console.log(triangle.checkSides());
+console.log(triangle.perimeter);
+console.log(triangle.area);
