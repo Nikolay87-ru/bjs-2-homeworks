@@ -8,17 +8,17 @@
   return number;
 };
 
-function validateCount(value) {
+const validateCount = (value) => {
   debugger;
   const result = parseCount(value);
-
-  if (!Number.isNaN(result)) {
-    return result;
+  try {
+    if (!Number.isNaN(result)) {
+      return result;
+    }
+  } catch (error) {
+    return error.message;
   }
-}
+};
 
-try {
-  validateCount(value);
-} catch (error) {
-  return error.message;
-}
+console.log(validateCount("56.65"));
+console.log(validateCount("ыфва"));
