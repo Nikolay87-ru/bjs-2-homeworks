@@ -42,13 +42,24 @@ class Triangle {
   get area() {
     const halfPer = this.perimeter * 0.5;
     const area = Math.sqrt(
-      halfPer * (halfPer - this.sideOne) * (halfPer - this.sideTwo) * (halfPer - this.sideThree)
+      halfPer *
+        (halfPer - this.sideOne) *
+        (halfPer - this.sideTwo) *
+        (halfPer - this.sideThree)
     );
     return +area.toFixed(3);
   }
+
+  getTriangle() {
+    try {
+      triangle.checkSides(); 
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
-const triangle = new Triangle(2,5,5);
+const triangle = new Triangle(2, 5, 500);
 
 console.log(triangle.checkSides());
 console.log(triangle.perimeter);
