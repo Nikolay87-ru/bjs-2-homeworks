@@ -53,6 +53,7 @@ class Triangle {
   getTriangle() {
     try {
       triangle.checkSides();
+      return triangle;
     } catch (error) {
       return {
         area: function() {
