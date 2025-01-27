@@ -17,10 +17,8 @@ function validateCount(value) {
   }
 }
 
-console.log(validateCount("56.65"));
-
 try {
-  console.log(validateCount("ыфва"));
+  validateCount(value);
 } catch (error) {
-  console.error(error.message);
+  return error.message;
 }
