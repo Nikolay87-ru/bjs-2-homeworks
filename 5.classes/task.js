@@ -162,7 +162,7 @@ class Student {
       marksCount = this.marks[lesson].length;
 
       totalSumMarks += averageMarkLesson * marksCount;
-      return countMarks += marksCount;
+      countMarks += marksCount;
     });
 
     if (!countMarks || countMarks === 0) {
