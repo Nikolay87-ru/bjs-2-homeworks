@@ -52,9 +52,16 @@ class Triangle {
 
   getTriangle() {
     try {
-      triangle.checkSides(); 
+      triangle.checkSides();
     } catch (error) {
-      return error;
+      return {
+        area: function() {
+          "Ошибка! Треугольник не существует";
+      },
+        perimeter: function() {
+          "Ошибка! Треугольник не существует";
+      },
+      };
     }
   }
 }
