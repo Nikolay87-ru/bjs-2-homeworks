@@ -10,9 +10,8 @@
 
 const validateCount = (value) => {
   debugger;
-  const result = parseCount(value);
   try {
-    return result;
+    return parseCount(value);
   } catch (error) {
     return error;
   }
