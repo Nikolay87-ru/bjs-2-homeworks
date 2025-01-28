@@ -30,13 +30,11 @@ class Triangle {
 
   checkSides() {
     return (
-      this.sideOne + this.sideTwo <= this.sideThree ||
-      this.sideOne + this.sideThree <= this.sideTwo ||
-      this.sideTwo + this.sideThree <= this.sideOne
+      this.sideOne + this.sideTwo < this.sideThree ||
+      this.sideOne + this.sideThree < this.sideTwo ||
+      this.sideTwo + this.sideThree < this.sideOne
     );
   }
-
-
 
   get perimeter() {
     const perimeter = this.sideOne + this.sideTwo + this.sideThree;
@@ -59,15 +57,16 @@ class Triangle {
       return new Triangle(sideOne, sideTwo, sideThree);
     } catch (error) {
       return {
-        area: () => "Ошибка! Треугольник не существует",
-        perimeter: () => "Ошибка! Треугольник не существует",
-      };
-    }
+        area() { return "Ошибка! Треугольник не существует"; },
+        perimeter() { return "Ошибка! Треугольник не существует"; }
+      }
+    };
   }
 }
 
-const triangle = new Triangle(2, 5, 500);
+const triangle = new Triangle(1,3,100);
+console.log(Triangle.getTriangle(1,3,100));
+console.log(Triangle.perimeter);
+console.log(Triangle.area);
 
-console.log(new Triangle(2, 5, 500));
-console.log(triangle.perimeter);
-console.log(triangle.area);
+
