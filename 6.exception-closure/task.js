@@ -51,22 +51,24 @@ class Triangle {
     );
     return +area.toFixed(3);
   }
+}
 
-  getTriangle(sideOne, sideTwo, sideThree) {
-    try {
-      return new Triangle(sideOne, sideTwo, sideThree);
-    } catch (error) {
-      return {
-        area() { return "Ошибка! Треугольник не существует"; },
-        perimeter() { return "Ошибка! Треугольник не существует"; }
-      }
+function getTriangle(sideOne, sideTwo, sideThree) {
+  try {
+    return new Triangle(sideOne, sideTwo, sideThree);
+  } catch (error) {
+    return {
+      get perimeter() {
+        return "Ошибка! Треугольник не существует";
+      },
+      get area() {
+        return "Ошибка! Треугольник не существует";
+      },
     };
   }
 }
 
-const triangle = new Triangle(1,3,100);
-console.log(Triangle.getTriangle(1,3,100));
-console.log(Triangle.perimeter);
-console.log(Triangle.area);
+const triangle = getTriangle(1, 3, 100);
 
-
+console.log(triangle.perimeter);
+console.log(triangle.area);
