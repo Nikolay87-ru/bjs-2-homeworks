@@ -16,7 +16,7 @@ const validateCount = (value) => {
 };
 
 // ЗАДАЧА №2 - ТРЕУГОЛЬНИК
-debugger;
+
 class Triangle {
   constructor(sideOne, sideTwo, sideThree) {
     this.sideOne = sideOne;
@@ -67,8 +67,3 @@ function getTriangle(sideOne, sideTwo, sideThree) {
     };
   }
 }
-
-const triangle = getTriangle(1, 3, 100);
-
-console.log(triangle.perimeter);
-console.log(triangle.area);
