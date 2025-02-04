@@ -5,9 +5,8 @@ class AlarmClock {
   }
 
   addClock(time, callback) {
-    // time = new Date().setHours(hour, minute);
 
-    if (time === null && callback === null) {
+    if (time === null || callback === null) {
       throw new Error('Отсутствуют обязательные аргументы');
     }
     
@@ -16,12 +15,17 @@ class AlarmClock {
       return;
     }
 
-    this.alarmCollection.push({callback: func(), time: this.time, canCall: true});
+    // callback();
+
+    this.alarmCollection.push({callback: () => {}, time, canCall: true});
   }
 }
 
 const clock = new AlarmClock();
 
-clock.addClock("16:45", callback);
+clock.addClock("16:45");
 
-console.log(alarmCollection);
+console.log(clock.alarmCollection);
+
+console.log(clock.alarmCollection['time']);
+
