@@ -15,9 +15,7 @@ class AlarmClock {
       return;
     }
 
-    // callback();
-
-    this.alarmCollection.push({callback: () => {}, time, canCall: true});
+    this.alarmCollection.push({callback: f => f, time, canCall: true});
   }
 }
 
