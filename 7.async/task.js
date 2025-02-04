@@ -10,7 +10,7 @@ class AlarmClock {
       throw new Error('Отсутствуют обязательные аргументы');
     }
     
-    if (this.alarmCollection.includes(time)) {
+    if (this.alarmCollection.some(setClock => setClock.time === time)) {
       console.warn('Уже присутствует звонок на это же время');
       return;
     }
@@ -24,10 +24,8 @@ const clock = new AlarmClock();
 const callback = f => f;
 
 clock.addClock("16:45", callback);
+clock.addClock("16:45", callback);
 
 console.log(clock.alarmCollection);
 
-const clockTime = clock.alarmCollection;
-
-console.log(clockTime[0].time);
 
