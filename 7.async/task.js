@@ -6,7 +6,7 @@ class AlarmClock {
 
   addClock(time, callback) {
 
-    if (time === null || callback === null) {
+    if (!time || !callback) {
       throw new Error('Отсутствуют обязательные аргументы');
     }
     
@@ -23,9 +23,13 @@ class AlarmClock {
 
 const clock = new AlarmClock();
 
-clock.addClock("16:45");
+const callback = f => f;
+
+clock.addClock("16:45", callback);
 
 console.log(clock.alarmCollection);
 
-console.log(clock.alarmCollection['time']);
+const clockTime = clock.alarmCollection;
+
+console.log(clockTime[0].time);
 
