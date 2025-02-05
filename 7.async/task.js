@@ -5,7 +5,7 @@ class AlarmClock {
   }
 
   addClock(time, callback) {
-    // time = new Date().toLocaleTimeString("ru-Ru", {
+    // time = new Date().toTimeString("ru-Ru", {
     //   hour: "2-digit",
     //   minute: "2-digit",
     // });
@@ -24,11 +24,9 @@ class AlarmClock {
 
   removeClock(time) {
     if (
-      this.alarmCollection.forEach((setClock) => {
-        if (setClock.time === time) {
-          delete setClock.time;
-        }
-      })
+      (this.alarmCollection = this.alarmCollection.filter(
+        (setClock) => setClock.time !== time
+      ))
     ) {
       return;
     }
@@ -41,10 +39,8 @@ const callback = (f) => f;
 
 clock.addClock("16:45", callback);
 clock.addClock("16:45", callback);
-
-console.log(clock.alarmCollection);
-
-clock.removeClock("17:45");
+clock.addClock("16:46", callback);
+clock.removeClock("16:45");
 
 console.log(clock.alarmCollection);
 console.log(clock.alarmCollection.length);
