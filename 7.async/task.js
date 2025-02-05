@@ -21,7 +21,7 @@ class AlarmClock {
     if (
       this.alarmCollection.some((setClock) => {
         if (setClock.time === time) {
-          setClock.time = null;
+          delete setClock.time;
         }
       })
     ) {
