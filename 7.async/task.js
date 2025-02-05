@@ -70,20 +70,28 @@ const clock = new AlarmClock();
 
 const callback = (f) => f;
 
-clock.addClock("16:45", callback);
-clock.addClock("16:45", callback);
-clock.addClock("16:46", callback);
-clock.removeClock("16:45");
+// clock.addClock("16:45", callback);
+// clock.addClock("16:45", callback);
+// clock.addClock("16:46", callback);
+// clock.removeClock("16:45");
 
-console.log(clock.alarmCollection);
+// console.log(clock.alarmCollection);
+// console.log(clock.alarmCollection.length);
+
+// console.log(clock.getCurrentFormattedTime());
+
+// console.log(clock.start());
+// console.log(clock.stop());
+// console.log(clock.resetAllCalls());
+// console.log(clock.alarmCollection);
+
+// console.log(clock.clearAlarms());
+// console.log(clock.alarmCollection);
+
+clock.addClock("16:45", callback);
+clock.addClock("16:45", callback);
+clock.addClock("16:45", callback);
 console.log(clock.alarmCollection.length);
 
-console.log(clock.getCurrentFormattedTime());
-
-console.log(clock.start());
-console.log(clock.stop());
-console.log(clock.resetAllCalls());
-console.log(clock.alarmCollection);
-
-console.log(clock.clearAlarms());
-console.log(clock.alarmCollection);
+clock.clearAlarms();
+console.log(clock.alarmCollection.length);
