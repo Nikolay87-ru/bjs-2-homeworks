@@ -5,6 +5,11 @@ class AlarmClock {
   }
 
   addClock(time, callback) {
+    time = new Date().toLocaleTimeString("ru-Ru", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
     if (!time || !callback) {
       throw new Error("Отсутствуют обязательные аргументы");
     }
@@ -19,7 +24,7 @@ class AlarmClock {
 
   removeClock(time) {
     if (
-      this.alarmCollection.some((setClock) => {
+      this.alarmCollection.forEach((setClock) => {
         if (setClock.time === time) {
           delete setClock.time;
         }
