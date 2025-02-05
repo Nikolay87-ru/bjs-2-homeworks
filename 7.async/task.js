@@ -38,6 +38,8 @@ class AlarmClock {
     }
 
     this.intervalId = setInterval(() => {
+      const localTime = this.getCurrentFormattedTime();
+
       if ((this.alarmCollection.forEach((alarm) => alarm.time === localTime && alarm.canCall === true))) {
         alarm.callback(localTime); 
         alarm.canCall = false; 
