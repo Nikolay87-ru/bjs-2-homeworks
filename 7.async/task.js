@@ -40,10 +40,12 @@ class AlarmClock {
     this.intervalId = setInterval(() => {
       const localTime = this.getCurrentFormattedTime();
 
-      if ((this.alarmCollection.forEach((alarm) => alarm.time === localTime && alarm.canCall === true))) {
+      this.alarmCollection.forEach(alarm => {
+        if (alarm.time === localTime && alarm.canCall) {
         alarm.callback(); 
         alarm.canCall = false; 
       }
+    });
     }, 1000);
   }
 
