@@ -19,7 +19,8 @@ class AlarmClock {
 
   removeClock(time) {
     if ((this.alarmCollection = this.alarmCollection.filter(
-        (setClock) => setClock.time !== time))) {
+        (setClock) => setClock.time !== time))
+    ) {
       return;
     }
   }
@@ -40,12 +41,12 @@ class AlarmClock {
     this.intervalId = setInterval(() => {
       const localTime = this.getCurrentFormattedTime();
 
-      this.alarmCollection.forEach(alarm => {
+      this.alarmCollection.forEach((alarm) => {
         if (alarm.time === localTime && alarm.canCall) {
-        alarm.callback(); 
-        alarm.canCall = false; 
-      }
-    });
+          alarm.callback();
+          alarm.canCall = false;
+        }
+      });
     }, 1000);
   }
 
@@ -55,7 +56,7 @@ class AlarmClock {
   }
 
   resetAllCalls() {
-    if ((this.alarmCollection.forEach((alarm) => alarm.canCall = true))) {
+    if (this.alarmCollection.forEach((alarm) => (alarm.canCall = true))) {
       return alarm.canCall;
     }
   }
@@ -69,24 +70,6 @@ class AlarmClock {
 const clock = new AlarmClock();
 
 const callback = (f) => f;
-
-// clock.addClock("16:45", callback);
-// clock.addClock("16:45", callback);
-// clock.addClock("16:46", callback);
-// clock.removeClock("16:45");
-
-// console.log(clock.alarmCollection);
-// console.log(clock.alarmCollection.length);
-
-// console.log(clock.getCurrentFormattedTime());
-
-// console.log(clock.start());
-// console.log(clock.stop());
-// console.log(clock.resetAllCalls());
-// console.log(clock.alarmCollection);
-
-// console.log(clock.clearAlarms());
-// console.log(clock.alarmCollection);
 
 clock.addClock("16:45", callback);
 clock.addClock("16:45", callback);
