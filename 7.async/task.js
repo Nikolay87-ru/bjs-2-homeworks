@@ -19,7 +19,7 @@ class AlarmClock {
       return;
     }
 
-    this.alarmCollection.push({ callback, time, canCall: true });
+    this.alarmCollection.push({ time, callback, canCall: true });
   }
 
   removeClock(time) {
@@ -44,6 +44,7 @@ clock.addClock("16:45", callback);
 
 console.log(clock.alarmCollection);
 
-clock.removeClock("16:45");
+clock.removeClock("17:45");
 
 console.log(clock.alarmCollection);
+console.log(clock.alarmCollection.length);
