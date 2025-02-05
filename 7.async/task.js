@@ -5,11 +5,6 @@ class AlarmClock {
   }
 
   addClock(time, callback) {
-    // time = new Date().toTimeString("ru-Ru", {
-    //   hour: "2-digit",
-    //   minute: "2-digit",
-    // });
-
     if (!time || !callback) {
       throw new Error("Отсутствуют обязательные аргументы");
     }
@@ -23,13 +18,18 @@ class AlarmClock {
   }
 
   removeClock(time) {
-    if (
-      (this.alarmCollection = this.alarmCollection.filter(
-        (setClock) => setClock.time !== time
-      ))
-    ) {
+    if ((this.alarmCollection = this.alarmCollection.filter(
+        (setClock) => setClock.time !== time))) {
       return;
     }
+  }
+
+  getCurrentFormattedTime() {
+    let localTime = new Date().toLocaleTimeString("ru-Ru", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return localTime;
   }
 }
 
@@ -44,3 +44,5 @@ clock.removeClock("16:45");
 
 console.log(clock.alarmCollection);
 console.log(clock.alarmCollection.length);
+
+console.log(clock.getCurrentFormattedTime())
