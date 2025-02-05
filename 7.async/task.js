@@ -46,6 +46,11 @@ class AlarmClock {
       }
     }, 1000);
   }
+
+  stop() {
+    clearInterval();
+    this.intervalId = null;
+  }
 }
 
 const clock = new AlarmClock();
@@ -63,3 +68,4 @@ console.log(clock.alarmCollection.length);
 console.log(clock.getCurrentFormattedTime());
 
 console.log(clock.start());
+console.log(clock.stop());
