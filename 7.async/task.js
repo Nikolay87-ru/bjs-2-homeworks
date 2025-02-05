@@ -25,11 +25,24 @@ class AlarmClock {
   }
 
   getCurrentFormattedTime() {
-    let localTime = new Date().toLocaleTimeString("ru-Ru", {
+    const localTime = new Date().toLocaleTimeString("ru-Ru", {
       hour: "2-digit",
       minute: "2-digit",
     });
     return localTime;
+  }
+
+  start() {
+    if (this.intervalId !== null) {
+      return;
+    }
+
+    this.intervalId = setInterval(() => {
+      if ((this.alarmCollection.forEach((alarm) => alarm.time === localTime && alarm.canCall === true))) {
+        alarm.callback(localTime); 
+        alarm.canCall = false; 
+      }
+    }, 1000);
   }
 }
 
@@ -45,4 +58,6 @@ clock.removeClock("16:45");
 console.log(clock.alarmCollection);
 console.log(clock.alarmCollection.length);
 
-console.log(clock.getCurrentFormattedTime())
+console.log(clock.getCurrentFormattedTime());
+
+console.log(clock.start());
