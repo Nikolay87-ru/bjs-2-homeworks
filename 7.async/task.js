@@ -51,6 +51,12 @@ class AlarmClock {
     clearInterval();
     this.intervalId = null;
   }
+
+  resetAllCalls() {
+    if ((this.alarmCollection.forEach((alarm) => alarm.canCall = true))) {
+      return alarm.canCall;
+    }
+  }
 }
 
 const clock = new AlarmClock();
@@ -69,3 +75,5 @@ console.log(clock.getCurrentFormattedTime());
 
 console.log(clock.start());
 console.log(clock.stop());
+console.log(clock.resetAllCalls());
+console.log(clock.alarmCollection);
