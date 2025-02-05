@@ -5,10 +5,10 @@ class AlarmClock {
   }
 
   addClock(time, callback) {
-    time = new Date().toLocaleTimeString("ru-Ru", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    // time = new Date().toLocaleTimeString("ru-Ru", {
+    //   hour: "2-digit",
+    //   minute: "2-digit",
+    // });
 
     if (!time || !callback) {
       throw new Error("Отсутствуют обязательные аргументы");
