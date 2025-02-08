@@ -31,9 +31,9 @@ function cachingDecoratorNew(func) {
   };
 }
 
-const hasingText = "какой-нибудь текст";
-console.log(md5(hasingText)); // 8d1d3ecc455a4220590e6d27e6c1a267
-console.log(md5([10, 20, 30]));
+// const hasingText = "какой-нибудь текст";
+// console.log(md5(hasingText)); // 8d1d3ecc455a4220590e6d27e6c1a267
+// console.log(md5([10, 20, 30]));
 
 module.exports = {
   cachingDecoratorNew,
