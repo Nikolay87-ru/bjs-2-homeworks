@@ -1,36 +1,27 @@
 //Задача № 1
-const md5 = require('./js-md5.js');
+const md5 = require("./js-md5.js");
 
 function cachingDecoratorNew(func) {
   let cache = [];
   const maxCacheValuesCount = 5;
-
-  return function(...args) {
+  return (...args) => {
     const hash = md5(args);
-
-    let hashInCash;
-    cache.find(item => {
-      if (item.hash === hash) {
-        hashInCash = item.value;
-      }
-    });
-
+    let hashInCash = cache.find((item) => item.hash === hash);  
+      
     if (hashInCash) {
-      console.log(`Из кэша: ${hashInCash}`);
-      return `Из кэша: ${hashInCash}`;
+      console.log("Из кеша: " + hashInCash.value);
+      return "Из кеша: " + hashInCash.value;
     }
-
     let result = func(...args);
     cache.push({ hash: hash, value: result });
-
     if (cache.length > maxCacheValuesCount) {
       cache.shift();
     }
-
-   console.log(`Вычисляем: ${result}`);
-   return `Вычисляем: ${result}`;
+    console.log("Вычисляем: " + result);
+    return "Вычисляем: " + result;
   };
 }
+
 
 const hasingText = "какой-нибудь текст";
 console.log(md5(hasingText)); // 8d1d3ecc455a4220590e6d27e6c1a267
@@ -68,3 +59,27 @@ function debounceDecoratorNew(func, delay) {
 module.exports = {
   debounceDecoratorNew,
 };
+
+function cachingDecoratorNew(func) {
+  let cache = [];
+  const maxCacheValuesCount = 5;
+  return (...args) => {
+    const hash = md5(args);
+    let objectInCache = cache.find((item) => item.hash === hash);
+    if (objectInCache) {
+      console.log("Из кеша: " + objectInCache.value);
+      return "Из кеша: " + objectInCache.value;
+    }
+    let result = func(...args);
+    cache.push({ hash: hash, value: result });
+    if (cache.length > maxCacheValuesCount) {
+      cache.shift();
+    }
+    console.log("Вычисляем: " + result);
+    return "Вычисляем: " + result;
+  };
+}
+
+module.exports = {
+  cachingDecoratorNew
+}
