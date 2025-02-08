@@ -1,5 +1,5 @@
 //Задача № 1
-const md5 = require("./js-md5.js");
+const md5 = require('./js-md5.js');
 
 function cachingDecoratorNew(func) {
   let cache = [];
@@ -16,8 +16,8 @@ function cachingDecoratorNew(func) {
     });
 
     if (hashInCash) {
-      console.log(`Вычисляем: ${hashInCash}`);
-      return `Вычисляем: ${hashInCash}`;
+      console.log(`Из кэша: ${hashInCash}`);
+      return `Из кэша: ${hashInCash}`;
     }
 
     let result = func(...args);
@@ -27,13 +27,14 @@ function cachingDecoratorNew(func) {
       cache.shift();
     }
 
-    return result;
+   console.log(`Вычисляем: ${result}`);
+   return `Вычисляем: ${result}`;
   };
 }
 
-// const hasingText = "какой-нибудь текст";
-// console.log(md5(hasingText)); // 8d1d3ecc455a4220590e6d27e6c1a267
-// console.log(md5([10, 20, 30]));
+const hasingText = "какой-нибудь текст";
+console.log(md5(hasingText)); // 8d1d3ecc455a4220590e6d27e6c1a267
+console.log(md5([10, 20, 30]));
 
 module.exports = {
   cachingDecoratorNew,
