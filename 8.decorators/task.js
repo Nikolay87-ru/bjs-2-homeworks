@@ -60,26 +60,3 @@ module.exports = {
   debounceDecoratorNew,
 };
 
-function cachingDecoratorNew(func) {
-  let cache = [];
-  const maxCacheValuesCount = 5;
-  return (...args) => {
-    const hash = md5(args);
-    let objectInCache = cache.find((item) => item.hash === hash);
-    if (objectInCache) {
-      console.log("Из кеша: " + objectInCache.value);
-      return "Из кеша: " + objectInCache.value;
-    }
-    let result = func(...args);
-    cache.push({ hash: hash, value: result });
-    if (cache.length > maxCacheValuesCount) {
-      cache.shift();
-    }
-    console.log("Вычисляем: " + result);
-    return "Вычисляем: " + result;
-  };
-}
-
-module.exports = {
-  cachingDecoratorNew
-}
